@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
-import { ArrowRight, ArrowUp, Share2 } from "lucide-react";
+import { ArrowRight, Share2 } from "lucide-react";
 import { toast } from "sonner";
 
 import amaLogo from "../assets/ama-logo.svg";
+import { Message } from "../components/message";
 
 export function Room() {
   const { roomId } = useParams();
@@ -57,33 +58,19 @@ export function Room() {
       </form>
 
       <ol className="list-decimal list-outside px-3 space-y-8">
-        <li className="ml-4 leading-relaxed text-zinc-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-          dolore quae, asperiores voluptatum, culpa tempore illum officiis a nam
-          quo reiciendis. Quos voluptate nam obcaecati eaque, laudantium
-          repellat earum distinctio.
-          <button
-            type="button"
-            className="mt-3 flex items-center gap-2 text-orange-400 text-sm font-medium hover:text-orange-500"
-          >
-            <ArrowUp className="size-4" />
-            Curtir pergunta (123)
-          </button>
-        </li>
-
-        <li className="ml-4 leading-relaxed text-zinc-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-          dolore quae, asperiores voluptatum, culpa tempore illum officiis a nam
-          quo reiciendis. Quos voluptate nam obcaecati eaque, laudantium
-          repellat earum distinctio.
-          <button
-            type="button"
-            className="mt-3 flex items-center gap-2 text-zinc-400 text-sm font-medium hover:text-zinc-300"
-          >
-            <ArrowUp className="size-4" />
-            Curtir pergunta (123)
-          </button>
-        </li>
+        <Message
+          text="Como funciona as goroutines em GoLang e por quer elas são importates para a concorrência e paralelismo?"
+          amountOfReactions={123}
+          answered
+        />
+        <Message
+          text="Quais são as melhores práticas para organizar o código em um projeto GoLang, incluindo pacotes, módulos e a estrutura de diretórios?"
+          amountOfReactions={10}
+        />
+        <Message
+          text="Como fazer a depuração de programas GoLang e quais ferramentas são recomendadas para isso?"
+          amountOfReactions={10}
+        />
       </ol>
     </div>
   );
