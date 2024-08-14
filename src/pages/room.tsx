@@ -3,7 +3,8 @@ import { ArrowRight, Share2 } from "lucide-react";
 import { toast } from "sonner";
 
 import amaLogo from "../assets/ama-logo.svg";
-import { Message } from "../components/message";
+import { Messages } from "../components/messages";
+import { Suspense } from "react";
 
 export function Room() {
   const { roomId } = useParams();
@@ -57,21 +58,9 @@ export function Room() {
         </button>
       </form>
 
-      <ol className="list-decimal list-outside px-3 space-y-8">
-        <Message
-          text="Como funciona as goroutines em GoLang e por quer elas são importates para a concorrência e paralelismo?"
-          amountOfReactions={123}
-          answered
-        />
-        <Message
-          text="Quais são as melhores práticas para organizar o código em um projeto GoLang, incluindo pacotes, módulos e a estrutura de diretórios?"
-          amountOfReactions={10}
-        />
-        <Message
-          text="Como fazer a depuração de programas GoLang e quais ferramentas são recomendadas para isso?"
-          amountOfReactions={10}
-        />
-      </ol>
+      <Suspense fallback={<p>Carregando...</p>}>
+        <Messages />
+      </Suspense>
     </div>
   );
 }
